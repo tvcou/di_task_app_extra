@@ -1,20 +1,16 @@
-<h1><%= @block.name %></h1>
-
-<div>
-  <%= @block.memo %>
-</div>
-
 <ul>
   <% @block.tasks.each do |task| %>
     <li>
       <%= check_box_tag '', '', task.done, {'data-id' => task.id, 'data-block_id' => task.block_id} %> 
       <%= task.title %>
+      memo:<%= task.memo %>
       <%= link_to "[del]", block_task_path(task.block_id, task.id), method: :delete, data: { confirm: "are you sure?" } %>
     </li>
   <% end %>
   <li>
     <%= form_for [@block, @block.tasks.build]  do |f| %>
       <%= f.text_field :title %>
+      <%= f.text_field :memo %>
       <%= f.submit %>
     <% end %>
   </li>
