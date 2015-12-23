@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151219025543) do
+ActiveRecord::Schema.define(version: 20151223020246) do
 
   create_table "blocks", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151219025543) do
     t.integer  "block_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "memo"
   end
 
   add_index "tasks", ["block_id"], name: "index_tasks_on_block_id"
